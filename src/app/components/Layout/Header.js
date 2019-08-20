@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { ROUTES } from "../../../constants";
 
 const StyledHeader = styled.header`
   background: #42b8b6;
@@ -31,17 +32,17 @@ function Header() {
       <nav className="Header--navigation">
         <NavLink
           exact
-          //   to={ROUTES.defaultPage}
+          to={ROUTES.declaration}
           className="Header--navigation-item"
         >
           Declaration
         </NavLink>
-        <NavLink exact className="Header--navigation-item">
+        <NavLink exact to={ROUTES.history} className="Header--navigation-item">
           History
         </NavLink>
         <NavLink
           exact
-          //   to={ROUTES.favourites}
+          to={ROUTES.emptyPage}
           className="Header--navigation-item"
         >
           Empty page

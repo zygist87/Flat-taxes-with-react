@@ -1,8 +1,14 @@
 import React from "react";
 import "./index.scss";
+//import styled from "styled-components";
+
+// const StyledEmptyPage = styled.emptypage`
+//   color: red;
+//   font-size: 24px;
+// `;
 
 function EmptyPage() {
-  return <div className="EmptyPage">Empty page</div>;
+  return <div>Empty page</div>;
 }
 
 export default EmptyPage;
