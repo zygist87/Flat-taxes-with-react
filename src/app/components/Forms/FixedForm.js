@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+// import Container from "react-bootstrap/Container";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
+
 import styled from "styled-components";
 
 const StyledFixedForm = styled.div`
@@ -9,24 +13,41 @@ const StyledFixedForm = styled.div`
   font-size: 20px;
   padding-top: 20px;
 
-  .FixedForm--title {
+  .title {
     padding-left: 10px;
   }
-  .FixedForm--input {
+  .input {
   }
-  .FixedForm--total {
+  .total {
     padding-right: 10px;
   }
 `;
 
-function FixedForm({ name, rate }) {
+function FixedForm({ name, fixedPart }) {
+  // const {
+  //   name,
+  //   toggleFavourite,
+  //   addToCart,
+  //   favourites,
+  //   cart
+  // } = useContext(ShopContext);
+
+  const [total, setTotal] = useState(0);
+  if (total < 0) {
+    alert("You have entered a negative amount");
+  }
   return (
-    <StyledFixedForm className="">
-      <span className="FixedForm--title">{name}</span>
-      <span className="FixedForm--input">
-        <input type="number" placeholder={rate} />
+    <StyledFixedForm>
+      <span className="title">{name}</span>
+      <span className="input">
+        <input
+          type="number"
+          // placeholder={fixedPart}
+          value={fixedPart}
+          onChange={event => setTotal(event.target.value)}
+        />
       </span>
-      <span className="FixedForm--total">Total</span>
+      <span className="total">€ {total}</span>
     </StyledFixedForm>
   );
 }

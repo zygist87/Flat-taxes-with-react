@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+//import { DeclarationContext } from "../DeclarationContext.js";
 
 const StyledTotalPay = styled.div`
   font-size: 24px;
@@ -7,6 +8,7 @@ const StyledTotalPay = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 20px;
+  color: green;
   .title {
     padding-left: 10px;
   }
@@ -28,8 +30,9 @@ const StyledButton = styled.button`
 
 function TotalPay() {
   function hi() {
-    return console.log("labassss");
+    console.log("labassss");
   }
+  // const { total } = useContext(DeclarationContext);
   return (
     <StyledTotalPay>
       <span className="title">Total Pay</span>
@@ -38,7 +41,7 @@ function TotalPay() {
           Pay
         </StyledButton>
       </span>
-      <span className="totalPay">suma</span>
+      <span className="totalPay">€ suma</span>
     </StyledTotalPay>
   );
 }

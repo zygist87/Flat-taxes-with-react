@@ -9,9 +9,11 @@ import {
 import { Declaration, History, EmptyPage } from "./pages";
 import { Layout } from "./components";
 import { ROUTES } from "../constants";
+//import { Layout, DeclarationProvider } from "./components";
 
 function App() {
   return (
+    //<DeclarationProvider>
     <Router>
       <Layout>
         <Switch>
@@ -22,6 +24,7 @@ function App() {
         </Switch>
       </Layout>
     </Router>
+    //</DeclarationProvider>
   );
 }
 
