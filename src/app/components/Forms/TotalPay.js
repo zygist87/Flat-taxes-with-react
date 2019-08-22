@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-//import { DeclarationContext } from "../DeclarationContext.js";
+import { DeclarationContext } from "../index";
 
 const StyledTotalPay = styled.div`
   font-size: 24px;
@@ -30,9 +30,9 @@ const StyledButton = styled.button`
 
 function TotalPay() {
   function hi() {
-    console.log("Pay");
+    console.log(to);
   }
-  //const { total } = useContext(DeclarationContext);
+  const { to } = useContext(DeclarationContext);
   return (
     <StyledTotalPay>
       <span className="title">Total Pay</span>
