@@ -30,9 +30,9 @@ const StyledButton = styled.button`
 
 function TotalPay() {
   function hi() {
-    console.log("labassss");
+    console.log("Pay");
   }
-  // const { total } = useContext(DeclarationContext);
+  //const { total } = useContext(DeclarationContext);
   return (
     <StyledTotalPay>
       <span className="title">Total Pay</span>
