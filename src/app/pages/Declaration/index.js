@@ -19,7 +19,7 @@ function Declaration() {
         rate="0.113"
       />
       <NotFixedForm name="Gas" from="0" to="" difference="" rate="0.66" />
-      <FixedForm name="Gas Fixed Part" rate="0.56" />
+      <FixedForm name="Gas Fixed Part" />
       <NotFixedForm
         name="Cold Water"
         from="0"
@@ -27,10 +27,10 @@ function Declaration() {
         difference=""
         rate="1.36"
       />
-      <FixedForm name="Cold Water Fixed Part" rate="1" />
-      <FixedForm name="Other Services" rate="" />
-      <FixedForm name="Heating" rate="" />
-      <FixedForm name="Internet" rate="" />
+      <FixedForm name="Cold Water Fixed Part" />
+      <FixedForm name="Other Services" />
+      <FixedForm name="Heating" />
+      <FixedForm name="Internet" />
       <TotalPay />
     </StyledDeclaration>
   );

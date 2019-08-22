@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-// import Container from "react-bootstrap/Container";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
-
+import React, { useState, useContext } from "react";
+import DeclarationContext from "../DeclarationContext";
 import styled from "styled-components";
 
 const StyledFixedForm = styled.div`
@@ -23,29 +20,24 @@ const StyledFixedForm = styled.div`
   }
 `;
 
-function FixedForm({ name, fixedPart }) {
-  // const {
-  //   name,
-  //   toggleFavourite,
-  //   addToCart,
-  //   favourites,
-  //   cart
-  // } = useContext(ShopContext);
-
+function FixedForm({ name }) {
+  const { setProviderData } = useContext(DeclarationContext);
   const [total, setTotal] = useState(0);
+
   if (total < 0) {
     alert("You have entered a negative amount");
   }
+
+  const onChange = event => {
+    setTotal(event.target.value);
+    setProviderData({ name, pay: event.target.value });
+  };
+
   return (
     <StyledFixedForm>
       <span className="title">{name}</span>
       <span className="input">
-        <input
-          type="number"
-          // placeholder={fixedPart}
-          value={fixedPart}
-          onChange={event => setTotal(event.target.value)}
-        />
+        <input type="number" onChange={onChange} />
       </span>
       <span className="total">€ {total}</span>
     </StyledFixedForm>

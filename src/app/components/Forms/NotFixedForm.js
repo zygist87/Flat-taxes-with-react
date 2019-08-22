@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
+import DeclarationContext from "../DeclarationContext";
 
 const StyledNotFixedForm = styled.div`
   display: flex;
@@ -27,12 +28,18 @@ const StyledNotFixedForm = styled.div`
 `;
 
 function NotFixedForm({ name, from, rate }) {
+  const { setProviderData } = useContext(DeclarationContext);
   const [to, setTo] = useState(0);
   const totalPay = to * rate;
   const totalPayRounded = totalPay.toFixed(2);
   if (to < 0) {
     alert("You have entered a negative amount");
   }
+  const onChange = event => {
+    setTo(event.target.value);
+    setProviderData({ name, from, to, rate, pay: event.target.value });
+  };
+
   return (
     <StyledNotFixedForm>
       <span className="title">{name}</span>
@@ -40,11 +47,7 @@ function NotFixedForm({ name, from, rate }) {
         <input type="number" placeholder="From" disabled value={from} />
       </span>
       <span className="to">
-        <input
-          type="number"
-          placeholder="To"
-          onChange={event => setTo(event.target.value)}
-        />
+        <input type="number" placeholder="To" onChange={onChange} />
       </span>
       <span className="difference">
         <input

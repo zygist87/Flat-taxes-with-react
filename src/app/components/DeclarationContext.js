@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 
-const DEFAULT_DECLARATION_CONTEXT = { forms: ["to"] };
-
-const DeclarationContext = React.createContext(DEFAULT_DECLARATION_CONTEXT);
+const DeclarationContext = React.createContext({});
 
 function DeclarationProvider({ children }) {
-  const [to, setTo] = useState([{ name: "labassssss" }]);
-
+  const [providers, setProvider] = useState([]);
+  const setProviderData = data => {
+    console.log(data);
+  };
   return (
     <DeclarationContext.Provider
       value={{
-        //name,
-        //from,
-
-        to
-        //difference,
-        //rate,
-        //total
+        providers,
+        setProviderData
+        //date
       }}
     >
       {children}
