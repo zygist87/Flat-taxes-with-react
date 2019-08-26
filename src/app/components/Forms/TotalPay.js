@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { DeclarationContext } from "../../components";
+import DeclarationContext from "../DeclarationContext";
 
 const StyledTotalPay = styled.div`
   font-size: 24px;
@@ -30,9 +30,9 @@ const StyledButton = styled.button`
 
 function TotalPay() {
   function hi() {
-    console.log(provider);
+    console.log(setProviderData);
   }
-  const { provider } = useContext(DeclarationContext);
+  const { setProviderData } = useContext(DeclarationContext);
   return (
     <StyledTotalPay>
       <span className="title">Total Pay</span>

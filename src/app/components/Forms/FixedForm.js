@@ -22,15 +22,18 @@ const StyledFixedForm = styled.div`
 
 function FixedForm({ name }) {
   const { setProviderData } = useContext(DeclarationContext);
-  const [total, setTotal] = useState(0);
+  const [pay, setPay] = useState(0);
 
-  if (total < 0) {
+  if (pay < 0) {
     alert("You have entered a negative amount");
   }
 
   const onChange = event => {
-    setTotal(event.target.value);
-    setProviderData({ name, pay: event.target.value });
+    const { value } = event.target;
+    const pay = value;
+    setPay(value);
+
+    setProviderData({ name, rate: event.target.value, pay });
   };
 
   return (
@@ -39,7 +42,7 @@ function FixedForm({ name }) {
       <span className="input">
         <input type="number" onChange={onChange} />
       </span>
-      <span className="total">€ {total}</span>
+      <span className="total">€ {pay}</span>
     </StyledFixedForm>
   );
 }

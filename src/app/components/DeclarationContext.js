@@ -4,9 +4,11 @@ const DeclarationContext = React.createContext({});
 
 function DeclarationProvider({ children }) {
   const [providers, setProvider] = useState([]);
+
   const setProviderData = data => {
     console.log(data);
   };
+
   return (
     <DeclarationContext.Provider
       value={{

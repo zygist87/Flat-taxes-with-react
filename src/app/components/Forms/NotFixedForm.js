@@ -30,14 +30,25 @@ const StyledNotFixedForm = styled.div`
 function NotFixedForm({ name, from, rate }) {
   const { setProviderData } = useContext(DeclarationContext);
   const [to, setTo] = useState(0);
-  const totalPay = to * rate;
-  const totalPayRounded = totalPay.toFixed(2);
+  const difference = to - from;
+  const pay = (difference * rate).toFixed(2);
   if (to < 0) {
     alert("You have entered a negative amount");
   }
   const onChange = event => {
-    setTo(event.target.value);
-    setProviderData({ name, from, to, rate, pay: event.target.value });
+    const { value } = event.target;
+    const difference = value - from;
+    const pay = (difference * rate).toFixed(2);
+    setTo(value);
+
+    setProviderData({
+      name,
+      from,
+      to: event.target.value,
+      difference,
+      rate,
+      pay
+    });
   };
 
   return (
@@ -54,13 +65,13 @@ function NotFixedForm({ name, from, rate }) {
           type="number"
           placeholder="Difference"
           disabled
-          value={to - from}
+          value={difference}
         />
       </span>
       <span className="rate">
-        <input type="number" placeholder={rate} disabled />
+        <input type="number" placeholder={rate} value={rate} disabled />
       </span>
-      <span className="total">€ {totalPayRounded}</span>
+      <span className="total">€ {pay}</span>
     </StyledNotFixedForm>
   );
 }

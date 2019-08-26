@@ -16,7 +16,7 @@ function Declaration() {
         from="0"
         to=""
         difference=""
-        rate="0.113"
+        rate="0.13"
       />
       <NotFixedForm name="Gas" from="0" to="" difference="" rate="0.66" />
       <FixedForm name="Gas Fixed Part" />
