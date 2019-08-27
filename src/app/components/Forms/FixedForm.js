@@ -22,7 +22,7 @@ const StyledFixedForm = styled.div`
 
 function FixedForm({ name }) {
   const { setProviderData } = useContext(DeclarationContext);
-  const [pay, setPay] = useState(0);
+  const [pay, setPay] = useState();
 
   if (pay < 0) {
     alert("You have entered a negative amount");
@@ -30,7 +30,7 @@ function FixedForm({ name }) {
 
   const onChange = event => {
     const { value } = event.target;
-    const pay = value;
+    const pay = Number(value);
     setPay(value);
 
     setProviderData({ name, rate: event.target.value, pay });

@@ -1,6 +1,6 @@
 export const ROUTES = {
-  declaration: "./declaration",
-  history: "./history",
-  emptyPage: "./emptyPage",
+  declaration: "/declaration",
+  history: "/history",
+  emptyPage: "/emptyPage",
   defaultPage: "/"
 };

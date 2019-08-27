@@ -25,9 +25,7 @@ function Layout({ children }) {
   return (
     <StyledLayout>
       <Header />
-      <Main className="Main">
-        <Declaration />
-      </Main>
+      <Main className="Main">{children}</Main>
       <Footer />
     </StyledLayout>
   );

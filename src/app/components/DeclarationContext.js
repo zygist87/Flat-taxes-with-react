@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 
-const DeclarationContext = React.createContext({});
+const DeclarationContext = React.createContext([]);
 
 function DeclarationProvider({ children }) {
   const [providers, setProvider] = useState([]);
-
   const setProviderData = data => {
-    console.log(data);
+    const providerIndex = providers.findIndex(
+      provider => provider.name === data.name
+    );
+    if (providerIndex === -1) {
+      setProvider([...providers, data]);
+    } else {
+      setProvider(
+        providers.map((provider, index) =>
+          index === providerIndex ? data : provider
+        )
+      );
+    }
   };
 
   return (

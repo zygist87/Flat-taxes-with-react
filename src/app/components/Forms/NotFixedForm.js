@@ -38,7 +38,7 @@ function NotFixedForm({ name, from, rate }) {
   const onChange = event => {
     const { value } = event.target;
     const difference = value - from;
-    const pay = (difference * rate).toFixed(2);
+    const pay = Number((difference * rate).toFixed(2));
     setTo(value);
 
     setProviderData({
