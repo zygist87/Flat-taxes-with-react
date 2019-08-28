@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import DeclarationContext from "../DeclarationContext";
+import PaymentContext from "../PaymentsContext";
 
 const StyledTotalPay = styled.div`
   font-size: 24px;
@@ -30,20 +31,21 @@ const StyledButton = styled.button`
 
 function TotalPay() {
   const { providers } = useContext(DeclarationContext);
+  const { setPaymentData } = useContext(PaymentContext);
 
   const totalPay = providers
     .reduce((prev, next) => prev + next.pay, 0)
     .toFixed(2);
 
   const onPay = () => {
-    // const paymentData = {
-    //   total: totalpay,
-    //   date: Date.now(),
-    //   providers
-    // };
-    // setPaymentData(paymentdata);
-    console.log("i will set payment history");
+    const paymentData = {
+      total: totalPay,
+      date: Date.now(),
+      providers
+    };
+    setPaymentData(paymentData);
   };
+
   return (
     <StyledTotalPay>
       <span className="title">Total Pay</span>

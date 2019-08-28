@@ -24,7 +24,6 @@ function DeclarationProvider({ children }) {
       value={{
         providers,
         setProviderData
-        //date
       }}
     >
       {children}
