@@ -40,7 +40,7 @@ function TotalPay() {
   const onPay = () => {
     const paymentData = {
       total: totalPay,
-      date: Date.now(),
+      date: new Date(),
       providers
     };
     setPaymentData(paymentData);
