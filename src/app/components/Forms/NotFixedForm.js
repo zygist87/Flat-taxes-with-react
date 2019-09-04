@@ -6,31 +6,40 @@ const StyledNotFixedForm = styled.div`
   display: flex;
   box-sizing: border-box;
   width: 100vw;
-  justify-content: space-between;
+  justify-content: center;
   line-height: 20px;
   font-size: 20px;
   padding-top: 20px;
 
   .title {
-    padding-left: 10px;
+    padding-left: 20px;
+    width: 20vw;
+    text-align: left;
   }
   .from {
+    width: 15vw;
   }
   .to {
+    width: 15vw;
   }
   .difference {
+    width: 15vw;
   }
   .rate {
+    width: 15vw;
   }
   .total {
-    padding-right: 10px;
+    padding-right: 20px;
+    width: 20vw;
+    text-align: right;
   }
 `;
 
 function NotFixedForm({ name, from, rate }) {
   const { setProviderData } = useContext(DeclarationContext);
   const [to, setTo] = useState(0);
-  const difference = to - from;
+
+  const difference = (to > 0 ? to : from) - from;
   const pay = (difference * rate).toFixed(2);
   if (to < 0) {
     alert("You have entered a negative amount");

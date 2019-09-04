@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./index.scss";
 import { FixedForm, NotFixedForm, TotalPay } from "../../components/Forms";
 import styled from "styled-components";
+import PaymentContext from "../../components/PaymentsContext";
 
 const StyledDeclaration = styled.div`
   background: lightblue;
@@ -9,20 +10,40 @@ const StyledDeclaration = styled.div`
 `;
 
 function Declaration() {
+  const { payments } = useContext(PaymentContext);
+
+  const fromLastPayment = data => {
+    if (payments.length <= 0) {
+      return 0;
+    } else {
+      const latestPayment = payments[payments.length - 1];
+      //console.log(latestPayment.providers);
+
+      const result = latestPayment.providers[data].to;
+      return result;
+    }
+  };
+
   return (
     <StyledDeclaration>
       <NotFixedForm
         name="Electricity"
-        from="0"
+        from={fromLastPayment(0)}
         to=""
         difference=""
         rate="0.13"
       />
-      <NotFixedForm name="Gas" from="0" to="" difference="" rate="0.66" />
+      <NotFixedForm
+        name="Gas"
+        from={fromLastPayment(1)}
+        to=""
+        difference=""
+        rate="0.66"
+      />
       <FixedForm name="Gas Fixed Part" />
       <NotFixedForm
         name="Cold Water"
-        from="0"
+        from={fromLastPayment(3)}
         to=""
         difference=""
         rate="1.36"

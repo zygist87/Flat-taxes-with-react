@@ -7,14 +7,22 @@ const StyledTotalPay = styled.div`
   font-size: 24px;
   line-height: 24px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100vw;
   padding-top: 20px;
   color: green;
   .title {
-    padding-left: 10px;
+    padding-left: 20px;
+    text-align: left;
+    width: 65vw;
+  }
+  .payButton {
+    width: 15vw;
   }
   .totalPay {
-    padding-right: 10px;
+    padding-right: 20px;
+    text-align: right;
+    width: 20vw;
   }
 `;
 
@@ -24,8 +32,8 @@ const StyledButton = styled.button`
   background: orange;
   font-size: 24px;
   line-height: 24px;
-
-  justify-items: right;
+  max-width: 12vw;
+  // justify-items: left;
   margin: 10px 0px 10px 10px;
 `;
 
